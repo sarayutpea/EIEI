@@ -8,16 +8,30 @@ use App\Article;
 class ArticleController extends Controller
 {
     public function index(){
-        return view('articles.index');
+        $articles = Article::latest()->get();
+        return view('articles.index', compact('articles') );
     }
 
     public function create(){
         return view('articles.create');
     }
 
+    public function show($id){
+        $article = Article::find($id);
+        return view('articles.show', compact('article'));
+    }
+
     public function store(Article $article){
         // dd(request()->all());
-        Article::create(request()->all());
-        return redirect('/artcles');
+        // Validate
+        $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        Article::create(request(['title', 'body']));
+        return redirect('/articles');
     }
+
+    
 }
