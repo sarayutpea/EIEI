@@ -26,8 +26,8 @@
                     <td>{{ $calendar->title }}</td>
                     <td>{{ $calendar->start }}</td>
                     <td>
-                        <a href="/calendars/{{ $calendar->id }}/edit" class="btn btn-primary">EDIT</a>
-                        <a href="" class="btn btn-danger">DELETE</a>
+                        <a href="/calendars/{{ $calendar->id }}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                        <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             @endforeach

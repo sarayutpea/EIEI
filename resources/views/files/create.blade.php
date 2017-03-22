@@ -25,7 +25,7 @@
             <input type="file" name="file" class="file">
         </div>
         <div class="form-group">
-            <select name="category_id" class="form-control">
+            <select name="category_id" class="custom-select">
                 <option value="0">เลือกหมวดหมู่</option>
                 <option value="1">กิจกรรม</option>
                 <option value="2">นิทรรศการ</option>
@@ -33,10 +33,18 @@
             </select>
         </div>
         <div class="form-group">
-            <div class="form-inline"><input type="checkbox" class="form-control" value="1" name="download" checked> &nbsp; Can download ? </div>
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" value="1" name="download" checked class="custom-control-input">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">&nbsp; Can download ? </span>
+            </label>
         </div>
         <div class="form-group">
-            <div class="form-inline"><input type="checkbox" class="form-control" value="1" name="publish"  checked> &nbsp; Publish ? </div>
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" value="1" name="publish" checked class="custom-control-input">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">&nbsp; Publish ? </span>
+            </label>
         </div>
 
         

@@ -10,10 +10,10 @@
         <h2>
             <img src="{{ Storage::url( $file->path) }}/{{ $file->hash_name }}" width="80" alt="{{ $file->title }}">
             {{ $file->title }}
-            <button type="button" data-method="delete" value="{{ $file->id }}" class="btn-delete btn btn-danger float-right">DELETE</button>
+            <button type="button" data-method="delete" value="{{ $file->id }}" class="btn-delete btn btn-danger float-right"><i class="fa fa-trash"></i></button>
             <a href="#" class="btn btn-default float-right">REPLY</a>
-            <a href="/files/{{ $file->id }}/edit" class="btn btn-primary float-right">EDIT</a>
-            <a href="{{ Storage::url( $file->path) }}/{{ $file->hash_name }}" class="btn btn-warning float-right">DOWNLOAD</a>
+            <a href="/files/{{ $file->id }}/edit" class="btn btn-primary float-right"><i class="fa fa-edit"></i></a>
+            <a href="{{ Storage::url( $file->path) }}/{{ $file->hash_name }}" class="btn btn-warning float-right"><i class="fa fa-cloud"></i></a>
         </h2>
         <h5>{{ $file->created_at->diffforHumans() }}</h5>
         <p>{{ $file->description }}</p>
