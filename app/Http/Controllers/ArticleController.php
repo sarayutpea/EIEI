@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Comment;
 
 class ArticleController extends Controller
 {
@@ -31,6 +32,15 @@ class ArticleController extends Controller
 
         Article::create(request(['title', 'body']));
         return redirect('/articles');
+    }
+
+    public function destroy($id){
+        $article = Article::find($id);
+        $comment = Comment::where('article_id',$id);
+        $article->delete();
+        $comment->delete();
+
+        return 'Delete';
     }
 
     

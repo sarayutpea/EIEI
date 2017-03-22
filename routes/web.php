@@ -19,14 +19,19 @@ Route::get('/articles','ArticleController@index');
 Route::get('/articles/create','ArticleController@create');
 Route::get('/articles/{id}', 'ArticleController@show');
 Route::post('/articles','ArticleController@store');
+Route::delete('/articles/{id}', 'ArticleController@destroy');
 
 Route::post('/articles/{article}/comments', 'CommentController@store'); //ส่ง id ชื่อว่า article เพราะจะส่งไปเป็น object
+
+
 
 // Files
 
 Route::get('/files','FileController@index');
 Route::get('/files/create','FileController@create');
 Route::get('/files/{id}', 'FileController@show');
-Route::post('/files','FileController@store');
+Route::get('/files/{id}/edit', 'FileController@edit');
+Route::post('/files','FileController@store'); //save 
+Route::post('/files/{id}', 'FileController@update'); //update
 Route::delete('/files/{id}', 'FileController@destroy');
 

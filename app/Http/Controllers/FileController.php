@@ -60,25 +60,80 @@ class FileController extends Controller
         return dd($id);
     }
 
+
+    public function edit($id){
+        $file = File::find($id);
+        
+        if($file->download == 1){
+            $file->chDownload = "checked";
+            $file->chDownloadValue = "1";
+        }else{
+            $file->chDownloadValue = "0";
+        }
+        if($file->publish == 1){
+            $file->chPublish = "checked";
+            $file->chPublishValue = "1";
+        }else{
+            $file->chPublishValue = "0";
+        }
+
+        return view('files.edit', compact('file'));
+    }
+
+
+    public function update($id){
+        $file = File::find($id);
+        $file->title = request('title');
+        $file->description = request('description');
+        $file->download = (int)request('download');
+        $file->publish = (int)request('publish');
+
+        if(request('file')){
+            $fileName = $file->hash_name;
+            $filePath = $file->path;
+            Storage::delete('public/'.$filePath.'/'.$fileName); //Delete old file
+
+
+            $fileRequest = request('file');
+            $fileOriginalName = strtolower($fileRequest->getClientOriginalName());
+            $fileHashName = $fileRequest->hashName();
+            $fileSize = $fileRequest->getSize();
+            $fileExt = strtolower($fileRequest->extension());
+
+
+            $file->path = $fileExt;
+            $file->hash_name = $fileHashName;
+            $file->original_name = $fileOriginalName;
+            $file->type = $fileExt;
+            $file->size = $fileSize;
+            Storage::disk('public')->put($fileExt, $fileRequest);
+        }
+        $file->save();
+
+        return 'Success';
+    }
+
+
+
+
     public function destroy($id){
         $file = File::find($id);
         $fileName = $file->hash_name;
         $filePath = $file->path;
-
         
         // return Storage::delete('/'.$filePath.'/'.$fileName);
-
-
-        if(!Storage::delete('public/'.$filePath.'/'.$fileName)){
-           return 'can not delete fine'; 
-        }
-        if(!File::destroy($id)){
+        
+        if(!$file->delete()){
             return 'can not delete row';
+
+            if(!Storage::delete('public/'.$filePath.'/'.$fileName)){
+            return 'can not delete fine';
+            }
         }
 
         // return redirect('/files');
         
 
-        // return "success: ".$filePath.'/'.$fileName;
+        return "Deleted: ".$filePath.'/'.$fileName;
     }
 }
