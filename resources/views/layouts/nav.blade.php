@@ -19,6 +19,7 @@
               <a class="dropdown-item" href="/files">Files</a>
             </div>
           </li>
+          <li><a class="nav-link" href="/calendars">Calendars</a></li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">

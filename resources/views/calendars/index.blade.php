@@ -3,11 +3,36 @@
 
 @section('content')
     <hr>
-    <h1>Calendars <a href="/calendars/create" class="btn btn-primary 
-pull-right">ADD</a></h3>
+    <h1>Calendars <a href="/calendars/create" class="btn btn-primary float-right">ADD</a></h3>
     <hr>
     <div id="calendar">
     </div>
+    <hr>
+    <h2>Manage</h2>
+    <hr>
+    <table class="table hover">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Time</td>
+                <td>Control</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($calendars as $calendar)
+                <tr style=" background-color: {{ $calendar->color }}; color: {{ $calendar->textColor }}; ">
+                    <td>{{ $calendar->id }}</td>
+                    <td>{{ $calendar->title }}</td>
+                    <td>{{ $calendar->start }}</td>
+                    <td>
+                        <a href="/calendars/{{ $calendar->id }}/edit" class="btn btn-primary">EDIT</a>
+                        <a href="" class="btn btn-danger">DELETE</a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 @endsection
 

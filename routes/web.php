@@ -40,4 +40,6 @@ Route::delete('/files/{id}', 'FileController@destroy');
 Route::get('/calendars','CalendarController@index');
 Route::get('/calendars/create','CalendarController@create');
 Route::get('/calendars/show','CalendarController@show');
+Route::get('/calendars/{id}/edit','CalendarController@edit');
+Route::post('/calendars/{id}/edit','CalendarController@update'); //save 
 Route::post('/calendars','CalendarController@store'); //save 

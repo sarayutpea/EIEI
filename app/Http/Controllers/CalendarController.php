@@ -9,7 +9,9 @@ class CalendarController extends Controller
 {
     //
     public function index(){
-        return view('calendars.index');
+        $calendars = Calendar::latest()->get();
+
+        return view('calendars.index', compact('calendars'));
     }
     public function create(){
         return view('calendars.create');
@@ -32,8 +34,35 @@ class CalendarController extends Controller
         $calendar->save();
 
         return redirect('/calendars');
+    }
+
+    public function edit($id){
+        $calendar = Calendar::find($id);
+        if(is_null($calendar->allDay)){
+            $calendar->time = "selected";
+            $calendar->day = "";
+        }else{
+            $calendar->time = "";
+            $calendar->day = "selected";
+        }
 
 
+        return view('calendars.edit', compact('calendar'));
+    }
+
+    public function update($id){
+        $calendar = Calendar::find($id);
+        $calendar->title = request()->title;
+        $calendar->start = request()->start;
+        $calendar->end = request()->end;
+        $calendar->allDay = request()->allDay;
+        $calendar->color = request()->color;
+        $calendar->textColor = request()->textColor;
+
+
+        $calendar->save();
+
+        return Back();
     }
     
 }
