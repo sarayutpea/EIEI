@@ -39,4 +39,5 @@ Route::delete('/files/{id}', 'FileController@destroy');
 
 Route::get('/calendars','CalendarController@index');
 Route::get('/calendars/create','CalendarController@create');
+Route::get('/calendars/show','CalendarController@show');
 Route::post('/calendars','CalendarController@store'); //save 

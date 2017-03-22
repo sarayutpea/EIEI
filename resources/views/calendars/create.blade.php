@@ -22,7 +22,7 @@ pull-right">SAVE</button></h3>
             <div class='input-group date' id='datetimepicker1'>
                 <input type='text' name="start" class="form-control" placeholder="Start at YYYY-MM-DDTHH:mm:ss+00:00"/>
                 <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
+                    <span class="fa fa-calendar"></span>
                 </span>
             </div>
         </div>
@@ -30,7 +30,7 @@ pull-right">SAVE</button></h3>
             <div class='input-group date' id='datetimepicker2'>
                 <input type='text' name="end" class="form-control" placeholder="End at YYYY-MM-DDTHH:mm:ss+00:00"/>
                 <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
+                    <span class="fa fa-calendar"></span>
                 </span>
             </div>
         </div>

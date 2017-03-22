@@ -8,10 +8,18 @@
 
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('fotorama/fotorama.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::Asset('colorpicker/bootstrap-colorpicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::Asset('datetimepicker/bootstrap-datetimepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::Asset('font-awesome/css/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('css/main.css') }}">
-    <script src="{{ URL::Asset('bootstrap/js/jquery-3.1.1.js') }}" type="text/javascript"></script>
+
+    <script src="{{ URL::Asset('js/jquery-2.2.4.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::Asset('js/moment.js') }}" type="text/javascript"></script>
     <script src="{{ URL::Asset('bootstrap/js/tether.js') }}" type="text/javascript"></script>
     <script src="{{ URL::Asset('bootstrap/js/bootstrap.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::Asset('colorpicker/bootstrap-colorpicker.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::Asset('datetimepicker/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
+
     <script src="{{ URL::Asset('fotorama/fotorama.js') }}" type="text/javascript"></script>
     <script>
         $.ajaxSetup({
