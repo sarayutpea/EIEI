@@ -43,3 +43,12 @@ Route::get('/calendars/show','CalendarController@show');
 Route::get('/calendars/{id}/edit','CalendarController@edit');
 Route::post('/calendars/{id}/edit','CalendarController@update'); //save 
 Route::post('/calendars','CalendarController@store'); //save 
+
+
+
+Route::get('/polls','PollController@index');
+Route::get('/polls/create','PollController@create');
+// Route::get('/polls/show','PollController@show');
+// Route::get('/polls/{id}/edit','PollController@edit');
+// Route::post('/polls/{id}/edit','PollController@update'); //save 
+// Route::post('/polls','PollController@store'); //save 
