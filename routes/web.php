@@ -35,3 +35,8 @@ Route::post('/files','FileController@store'); //save
 Route::post('/files/{id}', 'FileController@update'); //update
 Route::delete('/files/{id}', 'FileController@destroy');
 
+
+
+Route::get('/calendars','CalendarController@index');
+Route::get('/calendars/create','CalendarController@create');
+Route::post('/calendars','CalendarController@store'); //save 
