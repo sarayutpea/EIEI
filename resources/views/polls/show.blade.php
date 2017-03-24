@@ -36,7 +36,7 @@
             $(this).removeClass('active');
         });
 
-
+        //Add point
         $('.btn-point').click(function(){
             thisPollID = $('#poll-id').val();
             thisID = $(this).attr('id');
@@ -60,16 +60,15 @@
         });
 
         // ChartJS
+        thisPollID = $('#poll-id').val();
         getData = $.ajax({
             type: "GET",
+            data: {id: thisPollID},
             url: "/polls-chartjs",
             contentType: "application/json",
             async: false
         }).responseText;
-
-
-        data = $.parseJSON(getData)
-
+        data = $.parseJSON(getData);
         ctx = $('#chartReport');
         chartReport = new Chart(ctx, {
             type: 'doughnut',

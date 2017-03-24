@@ -49,11 +49,11 @@ Route::post('/calendars','CalendarController@store'); //save
 Route::get('/polls','PollController@index');
 Route::get('/polls/create','PollController@create');
 Route::get('/polls/{id}','PollController@show');
-// Route::get('/polls/{id}/edit','PollController@edit');
-// Route::post('/polls/{id}/edit','PollController@update'); //save 
+Route::get('/polls/{id}/edit','PollController@edit');
+Route::post('/polls/{id}/edit','PollController@update'); //save update
 Route::post('/polls','PollController@store'); //save 
-Route::delete('/polls/{id}', 'PollController@destroy');
+Route::delete('/polls/{id}', 'PollController@destroy'); //DELETE
 
-Route::get('/polls-chartjs','PollController@chartjs');
+Route::get('/polls-chartjs','PollController@chartjs'); // Response ChartJS donut
 
-Route::post('/pollItem/addPoint','PollItemController@addPoint'); //update point +1
+Route::post('/pollItem/addPoint','PollItemController@addPoint'); //update poll point +1

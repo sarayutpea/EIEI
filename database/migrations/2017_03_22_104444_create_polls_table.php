@@ -17,6 +17,7 @@ class CreatePollsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('description');
+
             $table->timestamps();
         });
     }

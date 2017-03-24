@@ -19,7 +19,8 @@
                 <tr>
                     <td>{{ $poll->title }}</td>
                     <td>
-                        <a href="/polls/{{ $poll->id }}" class="btn btn-primary"> <i class="fa fa-eye"></i> </a>
+                        <a href="/polls/{{ $poll->id }}" class="btn btn-info"> <i class="fa fa-eye"></i> </a>
+                        <a href="/polls/{{ $poll->id }}/edit" class="btn btn-primary"> <i class="fa fa-edit"></i></a>
                         <button type="button" id="{{ $poll->id }}" class=" btn btn-danger btn-delete"> <i class="fa fa-trash"></i></button>
                     </td>
                 </tr>

@@ -17,6 +17,7 @@ class CreatePollItemsTable extends Migration
             $table->increments('id');
             $table->integer('poll_id');
             $table->string('body');
+            $table->string('color');
             $table->string('point')->default(0);
             
             $table->timestamps();
