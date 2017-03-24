@@ -48,7 +48,12 @@ Route::post('/calendars','CalendarController@store'); //save
 
 Route::get('/polls','PollController@index');
 Route::get('/polls/create','PollController@create');
-// Route::get('/polls/show','PollController@show');
+Route::get('/polls/{id}','PollController@show');
 // Route::get('/polls/{id}/edit','PollController@edit');
 // Route::post('/polls/{id}/edit','PollController@update'); //save 
-// Route::post('/polls','PollController@store'); //save 
+Route::post('/polls','PollController@store'); //save 
+Route::delete('/polls/{id}', 'PollController@destroy');
+
+Route::get('/polls-chartjs','PollController@chartjs');
+
+Route::post('/pollItem/addPoint','PollItemController@addPoint'); //update point +1

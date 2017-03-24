@@ -21,6 +21,9 @@
     <script src="{{ URL::Asset('fullcalendar/fullcalendar.js') }}" type="text/javascript"></script>
     <script src="{{ URL::Asset('colorpicker/bootstrap-colorpicker.js') }}" type="text/javascript"></script>
     <script src="{{ URL::Asset('datetimepicker/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::Asset('chartjs/Chart.bundle.js') }}" type="text/javascript"></script>
+    <script src="{{ URL::Asset('chartjs/Chart.js') }}" type="text/javascript"></script>
+
 
     <script src="{{ URL::Asset('fotorama/fotorama.js') }}" type="text/javascript"></script>
     <script>
