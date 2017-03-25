@@ -34,7 +34,10 @@
 
         <div class="form-group">
             <button id="add-question" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Question</button>
+            <button id="add-ten-question" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add 10 Question</button>
+            <button id="add-hundreds-question" type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add 100 Question</button>
         </div>
+        
 
         <div class="form-group">
             <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Descriptions"></textarea>
@@ -49,22 +52,32 @@
 <script>
     
     $(document).ready(function(){
-        
+        $('#add-question').click(function(){
+            addQuestion(1);
+        });
+
+        $('#add-ten-question').click(function(){
+            addQuestion(10);
+        });
+
+        $('#add-hundreds-question').click(function(){
+            addQuestion(100);
+        });
 
         i = 0;
-        $('#add-question').click(function(){
-            //Add Header Question
-            $('#question-list').append('<hr><div class="form-group" id="question-'+i+'"></div>');
-            $('#question-'+i).append('<div class="form-inline"><input type="text" name="question['+i+']" id="question['+i+']" class="col-md-6 form-control" placeholder="Question...'+(i+1)+'"/> &nbsp;<button type="button" id="'+i+'" class="btn btn-outline-warning remove-item"><i class="fa fa-close"></i></button></div>');
-            for(j=1;j<=5;j++){
-                $('#question-'+i).append('<div class="form-inline" id="answer-'+j+'"><input type="text" name="answer['+i+']['+j+']" placeholder="'+j+'" class="col-md-3 form-control">&nbsp;<label class="custom-control custom-radio"><input type="radio" name="correctanswer['+i+']" value="'+j+'" class="custom-control-input"><span class="custom-control-indicator"></span></label></div>');
+        function addQuestion(count){
+            for(n=1;n<=count;n++){
+                //Add Header Question
+                $('#question-list').append('<div class="form-group" id="question-'+i+'"><hr></div>');
+                $('#question-'+i).append('<div class="form-inline"><input type="text" name="question['+i+']" id="question['+i+']" class="col-md-6 form-control" placeholder="Question...'+(i+1)+'"/> &nbsp;<button type="button" id="'+i+'" class="btn btn-outline-warning remove-item"><i class="fa fa-close"></i></button></div>');
+                for(j=1;j<=5;j++){
+                    $('#question-'+i).append('<div class="form-inline" id="answer-'+j+'"><input type="text" name="answer['+i+']['+j+']" placeholder="'+j+'" class="col-md-3 form-control">&nbsp;<label class="custom-control custom-radio"><input type="radio" name="correctanswer['+i+']" value="'+j+'" class="custom-control-input"><span class="custom-control-indicator"></span></label></div>');
+                }
+                i++;
             }
-            
             remove();
-            i++;
-
             console.log('click'+i);
-        });
+        }
 
         function remove(){
             $('.remove-item').click(function(){
