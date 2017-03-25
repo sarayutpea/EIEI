@@ -57,3 +57,10 @@ Route::delete('/polls/{id}', 'PollController@destroy'); //DELETE
 Route::get('/polls-chartjs','PollController@chartjs'); // Response ChartJS donut
 
 Route::post('/pollItem/addPoint','PollItemController@addPoint'); //update poll point +1
+
+
+
+
+Route::get('/questions','QuestionController@index');
+Route::get('/questions/create','QuestionController@create');
+Route::post('/questions','QuestionController@store');

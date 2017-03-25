@@ -65,7 +65,7 @@ class PollController extends Controller
             $pollColor = base_convert($pollColor, 10, 16 ); //10 to 16
             $poll->updatePollItem($poll->id, $pollItem, '#'.$pollColor, $pollItemPoint);
         }
-        return BAck();
+        return Back();
     }
 
 
