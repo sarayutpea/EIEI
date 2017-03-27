@@ -22,11 +22,42 @@
           <li><a class="nav-link" href="/calendars">Calendars</a></li>
           <li><a class="nav-link" href="/polls">Polls</a></li>
           <li><a class="nav-link" href="/questions">Question</a></li>
+          <li><a class="nav-link" href="/forums">Forums</a></li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form>-->
+        <!-- Right Side Of Navbar -->
+        
+          <ul class="nav navbar-nav navbar-right">
+              <!-- Authentication Links -->
+              @if (Auth::guest())
+                  <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                  <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+              @else
+                  <li class="dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                          {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
+
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li>
+                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                  Logout
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
+                          </li>
+                      </ul>
+                  </li>
+              @endif
+          </ul>
+
       </div>
     </nav>
   </div>

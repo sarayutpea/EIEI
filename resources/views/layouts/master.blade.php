@@ -1,5 +1,5 @@
 <!DOCTYPE>
-<html>
+<html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,15 +26,23 @@
 
 
     <script src="{{ URL::Asset('fotorama/fotorama.js') }}" type="text/javascript"></script>
-    <script>
+    <script type="text/javascript">
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        // Chatter
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
     </script>
     
+    
     <title>Simple Test All app</title>
+
+    @yield('css')
 </head>
 <body>
     @include('layouts.nav')
@@ -45,10 +53,10 @@
     @include('layouts.footer')
 
 
-
-
-    @yield('script')
     
 
+    @yield('script')
+    @yield('js')
+    
 </body>
 </html>
