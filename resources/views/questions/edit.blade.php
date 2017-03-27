@@ -3,7 +3,7 @@
 
 @section('content')
     <hr>
-    <h1>Create - Questions 
+    <h1>Edit - Questions 
         <button id="btn-save-files" type="button" class="btn btn-success float-right">SAVE</button>
     <hr>
     <form action="/questions" id="create-files"  method="POST" class="form" name="form" enctype="multipart/form-data"> 
