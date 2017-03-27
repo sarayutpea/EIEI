@@ -22,11 +22,10 @@ class QuestionController extends Controller
     }
 
     public function store(){
-        dd(request()->all());
-
+        // dd(request()->all());
         $getAnswers = request()->answer;
         $getQuestions = request()->question;
-        $getCorretAnswer = request()->correctanswer;
+        $getCorrect = request()->correctanswer;
 
         $header = new QuestionHeader;
         $header->title = request()->title;
@@ -34,29 +33,31 @@ class QuestionController extends Controller
         $header->save();
         $headerID = $header->id;
 
-        $mergs = array_merge(['question'=>$getQuestions],['answer'=>$getAnswers],['correct_anwser'=>$getCorretAnswer]);
+        $mergs = array_merge(['question'=>$getQuestions],['answer'=>$getAnswers]); // เอามา merg กันเพื่อให้ใส่ใน foreach ได้
 
-        foreach(array_combine($mergs['question'], $mergs['answer']) as $question => $answer ){
+        foreach(array_combine($mergs['question'], $mergs['answer']) as $question => $answer ){ // Foreach By key จากตัว merg
 
-            $objQuestion = new Question;
+            $numCheckCorrert = array_search($question ,$getQuestions); // ค้นหา Key ของคำถาม จากการหาคำ ปัจจุบัน จะได้เป็น ตัวเลข
+
+            $objQuestion = new Question; 
             $objQuestion->question_header_id = $headerID;
             $objQuestion->body = $question;
             $objQuestion->save();
             $questionID = $objQuestion->id;
 
-            for($n=1;$n<=5;$n++){
+            for($n=1;$n<=5;$n++){ // For สำหรับการบันทึกคำตอบ 5 ข้อ
                 $objAnswer = new QuestionAnswer;
                 $objAnswer->question_id = $questionID;
                 $objAnswer->body = $answer[$n];
-                
-                $objAnswer->correct = 0;
 
+                if($getCorrect[$numCheckCorrert] == $n){ //ถ้าข้อไหนถูกเลือกว่าถูกจะให้เป็น 1 $n คือหมายเลขข้อ และ $getCorrect จะเป็นหมายเลขข้อทีู่กต้อง สำหรับ คำถามนั้นๆ
+                    $objAnswer->correct = 1; 
+                }
 
                 $objAnswer->save();
             }
-            
         }
             
-        return true;
+        return $numCheckCorrert;
     }
 }
