@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('fotorama/fotorama.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::Asset('fullcalendar/fullcalendar.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ URL::Asset('fullcalendar/fullcalendar.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('colorpicker/bootstrap-colorpicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('datetimepicker/bootstrap-datetimepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::Asset('font-awesome/css/font-awesome.css') }}">

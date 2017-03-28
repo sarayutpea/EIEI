@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{ URL::Asset('fullcalendar/fullcalendar.css') }}">
+@endsection
 
 @section('content')
     <hr>

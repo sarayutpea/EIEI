@@ -13,8 +13,8 @@ class QuestionController extends Controller
     //
 
     public function index(){
-
-        return view('questions.index');
+        $questions = QuestionHeader::all();
+        return view('questions.index',compact('questions'));
     }
 
     public function create(){
@@ -48,6 +48,7 @@ class QuestionController extends Controller
             for($n=1;$n<=5;$n++){ // For สำหรับการบันทึกคำตอบ 5 ข้อ
                 $objAnswer = new QuestionAnswer;
                 $objAnswer->question_id = $questionID;
+                $objAnswer->choice = $n;
                 $objAnswer->body = $answer[$n];
 
                 if($getCorrect[$numCheckCorrert] == $n){ //ถ้าข้อไหนถูกเลือกว่าถูกจะให้เป็น 1 $n คือหมายเลขข้อ และ $getCorrect จะเป็นหมายเลขข้อทีู่กต้อง สำหรับ คำถามนั้นๆ
@@ -58,6 +59,61 @@ class QuestionController extends Controller
             }
         }
             
-        return $numCheckCorrert;
+        return redirect('/questions');
     }
+
+
+    public function show($id){
+        $questionHeader = QuestionHeader::find($id);
+        $questions = Question::where('question_header_id',$questionHeader->id)->get();
+        
+        $i=0;        
+        foreach($questions as $question){
+            
+            $answers[$i] = QuestionAnswer::where('question_id',$questions[$i]->id)->get();
+            $i++;
+        }
+
+        // return $questions;
+        // return $answers[0];
+
+        return view('questions.show',compact('questionHeader','questions','answers'));
+    }
+
+    public function checkpoint(){
+        $questionHeaderID = request()->question_header_id;
+        $questionID = request()->question_id;
+        $selectedAnswers = request()->correctanswer;
+        $correctAnswers = QuestionAnswer::where('correct', 1)->get()->toArray();
+        
+        $point = 0;
+        $fail = 0;
+
+        for($i=0;$i<=count($correctAnswers)-1;$i++){
+            if($selectedAnswers[$i] == $correctAnswers[$i]['choice']){
+                $point++;
+            }else{
+                $fail ++;
+            }
+        }
+
+        // foreach(array_combine($selectedAnswers, $correctAnswers) as $selectedAnswer => $correctAnswer){
+        //     $thisSelected = $selectedAnswer;
+        //     $thisCorrect = $correctAnswer['choice'];
+
+        //     if($thisSelected == $thisCorrect){
+        //         $point++;
+        //     }else{
+        //         $fail ++;
+        //     }
+        // }
+        
+
+        // return count($selectedAnswers).'And'.count($correctAnswers);
+        return 'ได้คะแนน'.$point.'ผิด'.$fail;
+        dd($selectedAnswers);
+        dd($correctAnswers);
+        // dd($fail);
+    }
+
 }

@@ -63,7 +63,9 @@ Route::post('/pollItem/addPoint','PollItemController@addPoint'); //update poll p
 
 Route::get('/questions','QuestionController@index');
 Route::get('/questions/create','QuestionController@create');
+Route::get('/questions/{id}','QuestionController@show');
 Route::post('/questions','QuestionController@store');
+Route::post('/questions/checkpoint','QuestionController@checkpoint');
 
 
 

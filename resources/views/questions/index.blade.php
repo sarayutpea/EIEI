@@ -6,15 +6,17 @@
     <h1>Questions <a href="/questions/create" class="btn btn-primary float-right">ADD</a></h3>
     <hr>
 
+    @foreach( $questions as $question )
     <h4>
-        Title
+        {{ $question->title }}
         <button type="button" data-method="delete" value="" class="btn-delete btn btn-danger float-right"><i class="fa fa-trash"></i></button>
-        <a href="/files//edit" class="btn btn-primary float-right"><i class="fa fa-edit"></i></a>
-        <a href="" class="btn btn-warning float-right"><i class="fa fa-eye"></i></a>
+        <a href="/questions/{{ $question->id }}/edit" class="btn btn-primary float-right"><i class="fa fa-edit"></i></a>
+        <a href="/questions/{{ $question->id }}" class="btn btn-warning float-right"><i class="fa fa-eye"></i></a>
     </h4>
     <h5></h5>
     <p></p>
     <hr>
+    @endforeach
 
 @endsection
 
