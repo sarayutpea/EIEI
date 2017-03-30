@@ -19,16 +19,16 @@ class QuestionTableSeeder extends Seeder
 
 
 
-        DB::table('questions')->insert(['id' => 1,'question_header_id' => '1','body'=>'1. เขื่อนภูมิพล มีชื่ออีกชื่อหนึ่งว่าอะไร' ]);
-        DB::table('questions')->insert(['id' => 2,'question_header_id' => '1','body'=>'2. บิดาแห่งกฏหมายไทย คือใคร' ]);
-        DB::table('questions')->insert(['id' => 3,'question_header_id' => '1','body'=>'3. คำขวัญ เมืองปราสาทหิน ถิ่นภูเขาไฟ เป็นของจังหวัดใด' ]);
-        DB::table('questions')->insert(['id' => 4,'question_header_id' => '1','body'=>'4. พรมแดนกั้นไทยกับประเทศลาว สิ่งต่อไปนี้ไม่ได้กั้นอยู่' ]);
-        DB::table('questions')->insert(['id' => 5,'question_header_id' => '1','body'=>'5. แม่น้ำวัง มีต้นกำเนิดจากจังหวัดใด' ]);
-        DB::table('questions')->insert(['id' => 6,'question_header_id' => '1','body'=>'6. อุทยานแห่งชาติดอยอินทนน อยู่จังหวัดใด' ]);
-        DB::table('questions')->insert(['id' => 7,'question_header_id' => '1','body'=>'7. วันกองทัพไทย ตรงกับวันที่เท่าใด' ]);
-        DB::table('questions')->insert(['id' => 8,'question_header_id' => '1','body'=>'8. หนองน้ำที่ใหญ่ที่สุดของไทย คืออะไร' ]);
-        DB::table('questions')->insert(['id' => 9,'question_header_id' => '1','body'=>'9. ธนาคารที่เก่าแก่ที่สุดของไทย คือธนาคารใด' ]);
-        DB::table('questions')->insert(['id' => 10,'question_header_id' => '1','body'=>'10. งานบุญเดือนสิบ มีที่จังหวัดใด' ]);
+        DB::table('questions')->insert(['id' => 1,'question_header_id' => '1','body'=>'เขื่อนภูมิพล มีชื่ออีกชื่อหนึ่งว่าอะไร' ]);
+        DB::table('questions')->insert(['id' => 2,'question_header_id' => '1','body'=>'บิดาแห่งกฏหมายไทย คือใคร' ]);
+        DB::table('questions')->insert(['id' => 3,'question_header_id' => '1','body'=>'คำขวัญ เมืองปราสาทหิน ถิ่นภูเขาไฟ เป็นของจังหวัดใด' ]);
+        DB::table('questions')->insert(['id' => 4,'question_header_id' => '1','body'=>'พรมแดนกั้นไทยกับประเทศลาว สิ่งต่อไปนี้ไม่ได้กั้นอยู่' ]);
+        DB::table('questions')->insert(['id' => 5,'question_header_id' => '1','body'=>'แม่น้ำวัง มีต้นกำเนิดจากจังหวัดใด' ]);
+        DB::table('questions')->insert(['id' => 6,'question_header_id' => '1','body'=>'อุทยานแห่งชาติดอยอินทนน อยู่จังหวัดใด' ]);
+        DB::table('questions')->insert(['id' => 7,'question_header_id' => '1','body'=>'วันกองทัพไทย ตรงกับวันที่เท่าใด' ]);
+        DB::table('questions')->insert(['id' => 8,'question_header_id' => '1','body'=>'หนองน้ำที่ใหญ่ที่สุดของไทย คืออะไร' ]);
+        DB::table('questions')->insert(['id' => 9,'question_header_id' => '1','body'=>'ธนาคารที่เก่าแก่ที่สุดของไทย คือธนาคารใด' ]);
+        DB::table('questions')->insert(['id' => 10,'question_header_id' => '1','body'=>'งานบุญเดือนสิบ มีที่จังหวัดใด' ]);
 
 
 

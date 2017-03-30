@@ -74,10 +74,76 @@ class QuestionController extends Controller
             $i++;
         }
 
-        // return $questions;
-        // return $answers[0];
-
         return view('questions.show',compact('questionHeader','questions','answers'));
+    }
+
+
+    public function edit($id){
+        $questionHeader = QuestionHeader::find($id);
+        $questions = Question::where('question_header_id',$questionHeader->id)->get();
+        
+        $i=0;        
+        foreach($questions as $question){
+            
+            $answers[$i] = QuestionAnswer::where('question_id',$questions[$i]->id)->get();
+            $i++;
+        }
+
+        return view('questions.edit',compact('questionHeader','questions','answers'));
+    }
+
+
+    public function update($id){
+        $getAnswers = request()->answer;
+        $getQuestionsID = request()->question_id;
+        $getQuestions = request()->question;
+        $getCorrect = request()->correctanswer;
+
+        $header = QuestionHeader::find($id);
+        $header->title = request()->title;
+        $header->description = request()->description;
+        $header->save();
+        $headerID = $header->id;
+
+        $questions = Question::where('question_header_id',$headerID)->get();
+
+        // remoe all old
+        foreach($questions as $question){
+            $questions = Question::find($question->id);
+            $questions->delete();
+            $answers = QuestionAnswer::where('question_id',$question->id);
+            $answers->delete();
+        }
+
+        // new insert
+        $mergs = array_merge(['question'=>$getQuestions],['answer'=>$getAnswers]); // เอามา merg กันเพื่อให้ใส่ใน foreach ได้
+
+        foreach(array_combine($mergs['question'], $mergs['answer']) as $question => $answer ){ // Foreach By key จากตัว merg
+
+            $numCheckCorrert = array_search($question ,$getQuestions); // ค้นหา Key ของคำถาม จากการหาคำ ปัจจุบัน จะได้เป็น ตัวเลข
+
+            $objQuestion = new Question; 
+            $objQuestion->question_header_id = $headerID;
+            $objQuestion->body = $question;
+            $objQuestion->save();
+            $questionID = $objQuestion->id;
+
+            for($n=1;$n<=5;$n++){ // For สำหรับการบันทึกคำตอบ 5 ข้อ
+                $objAnswer = new QuestionAnswer;
+                $objAnswer->question_id = $questionID;
+                $objAnswer->choice = $n;
+                $objAnswer->body = $answer[$n];
+
+                if($getCorrect[$numCheckCorrert] == $n){ //ถ้าข้อไหนถูกเลือกว่าถูกจะให้เป็น 1 $n คือหมายเลขข้อ และ $getCorrect จะเป็นหมายเลขข้อทีู่กต้อง สำหรับ คำถามนั้นๆ
+                    $objAnswer->correct = 1; 
+                }
+
+                $objAnswer->save();
+            }
+        }
+
+        return Back();
+
     }
 
     public function checkpoint(){
@@ -114,6 +180,24 @@ class QuestionController extends Controller
         // dd($selectedAnswers);
         // dd($correctAnswers);
         // dd($fail);
+    }
+
+    public function destroy($id){
+
+        $header = QuestionHeader::find($id);
+        $headerID = $header->id;
+
+        $questions = Question::where('question_header_id',$headerID)->get();
+
+        foreach($questions as $question){
+            $questions = Question::find($question->id);
+            $questions->delete();
+            $answers = QuestionAnswer::where('question_id',$question->id);
+            $answers->delete();
+        }
+
+        $header->delete();
+
     }
 
 }

@@ -2,11 +2,20 @@
 
 
 @section('content')
+    <style>
+        input[type='text'],input[type="radio"]{
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            background: white;
+            user-select: none;
+        };
+    </style>
     <hr>
     <h1>Create - Questions 
-        <button id="btn-save-files" type="button" class="btn btn-success float-right">SAVE</button>
+        <button id="btn-save" type="button" class="btn btn-success float-right">SAVE</button>
     <hr>
-    <form action="/questions" id="create-files"  method="POST" class="form" name="form" enctype="multipart/form-data"> 
+    <form action="/questions" id="create-form"  method="POST" class="form" name="form" enctype="multipart/form-data"> 
         {{ csrf_field() }}
         <div class="form-group">
             <input type="text" id="title" name="title" class="form-control" placeholder="Title"/>
@@ -89,8 +98,8 @@
         }
 
 
-        $('#btn-save-files').click(function(){
-            $('#create-files').submit();
+        $('#btn-save').click(function(){
+            $('#create-form').submit();
             console.log('Click');
         });
 

@@ -30,7 +30,7 @@
             <div class="form-group" id="question-0">
                 <div class="form-inline">
                     <input type="hidden" name="question_id[{{ $i }}]" value="{{ $question->id }}">
-                    <input type="text" name="question[{{ $i }}]" id="question[{{ $i }}]" class="col-md-6 form-control" placeholder="Question..."/ value="{{ $question->body }}">
+                    {{ ($i+1) }}.<input type="text" name="question[{{ $i }}]" id="question[{{ $i }}]" class="col-md-6 form-control" placeholder="Question..."/ value="{{ $question->body }}">
                 </div>
                 @for($n=0;$n<=4;$n++ )
                 <div class="form-inline" id="answer-{{ $n }}">

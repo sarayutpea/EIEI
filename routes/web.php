@@ -64,8 +64,11 @@ Route::post('/pollItem/addPoint','PollItemController@addPoint'); //update poll p
 Route::get('/questions','QuestionController@index');
 Route::get('/questions/create','QuestionController@create');
 Route::get('/questions/{id}','QuestionController@show');
+Route::get('/questions/{id}/edit','QuestionController@edit');
+Route::post('/questions/{id}/edit','QuestionController@update');
 Route::post('/questions','QuestionController@store');
 Route::post('/questions/checkpoint','QuestionController@checkpoint');
+Route::delete('/questions/{id}', 'QuestionController@destroy'); //DELETE
 
 
 

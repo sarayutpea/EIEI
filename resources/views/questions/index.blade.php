@@ -9,7 +9,7 @@
     @foreach( $questions as $question )
     <h4>
         {{ $question->title }}
-        <button type="button" data-method="delete" value="" class="btn-delete btn btn-danger float-right"><i class="fa fa-trash"></i></button>
+        <button type="button" data-method="delete" value="{{ $question->id }}" class="btn-delete btn btn-danger float-right"><i class="fa fa-trash"></i></button>
         <a href="/questions/{{ $question->id }}/edit" class="btn btn-primary float-right"><i class="fa fa-edit"></i></a>
         <a href="/questions/{{ $question->id }}" class="btn btn-warning float-right"><i class="fa fa-eye"></i></a>
     </h4>
