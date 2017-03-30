@@ -111,8 +111,8 @@ class QuestionController extends Controller
 
         // return count($selectedAnswers).'And'.count($correctAnswers);
         return 'ได้คะแนน'.$point.'ผิด'.$fail;
-        dd($selectedAnswers);
-        dd($correctAnswers);
+        // dd($selectedAnswers);
+        // dd($correctAnswers);
         // dd($fail);
     }
 
