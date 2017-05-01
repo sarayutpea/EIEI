@@ -6,3 +6,16 @@
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
+
+.user-avatar{
+	height: 400px;
+	width: 400px;
+	border: solid gray 1px;
+	border-radius: 50%;
+	background-position: center;
+	background-size: cover;
+}
+.user-avatar:hover{
+	opacity: 0.7;
+	cursor: pointer;
+}

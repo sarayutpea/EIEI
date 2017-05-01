@@ -3,11 +3,14 @@
 
 @section('content')
     <style>
-        input[type='text'],input[type="radio"]{
+        input[type=text],input[type=radio]{
             border: 0px;
             background: white;
             user-select: none;
         };
+        .form-control:disabled{
+            background-color: none;
+        }
     </style>
     <hr>
     <h1>Questions View
@@ -15,7 +18,7 @@
         <button id="btn-completed" type="button" class="btn btn-success float-right"><i class="fa fa-check-circle"></i></button>
     <hr>
      </h1>
-    <form action="/questions/checkpoint" id="create-files"  method="POST" class="form" name="form" enctype="multipart/form-data"> 
+    <form action="/questions/checkpoint" id="form"  method="POST" class="form" name="form" enctype="multipart/form-data"> 
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -67,10 +70,10 @@
     $(document).ready(function(){
 
         $('#btn-completed').click(function(){
-            $('#create-files').submit();
+            $('#form').submit();
             console.log('Click');
         });
-
+        $('input[type="text"]').attr('disabled','disabled');
 
     });
 </script>
