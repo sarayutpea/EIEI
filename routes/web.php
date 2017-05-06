@@ -71,6 +71,10 @@ Route::post('/questions/checkpoint','QuestionController@checkpoint');
 Route::delete('/questions/{id}', 'QuestionController@destroy'); //DELETE
 
 
+Route::get('/genforms','GenformController@index');
+Route::get('/genforms/create','GenformController@create');
+
+
 
 
 Auth::routes();

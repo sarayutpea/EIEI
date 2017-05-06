@@ -23,6 +23,7 @@
           <li><a class="nav-link" href="/polls">Polls</a></li>
           <li><a class="nav-link" href="/questions">Question</a></li>
           <li><a class="nav-link" href="/forums">Forums</a></li>
+          <li><a class="nav-link" href="/genforms">Genforms</a></li>
         </ul>
         <!--<form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
