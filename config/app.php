@@ -168,6 +168,9 @@ return [
         // Mark Down
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
 
+        // RSS
+        Roumen\Feed\FeedServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -232,7 +235,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // MarkDown
-        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        // RSS
+        'Feed' => Roumen\Feed\Feed::class,
 
     ],
 

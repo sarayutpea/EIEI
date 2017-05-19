@@ -14,4 +14,9 @@ class GenformController extends Controller
     public function create(){
         return view('genforms.create');
     }
+    
+    public function store(){
+        dd(request()->all());
+        return view('genforms.index');
+    }
 }

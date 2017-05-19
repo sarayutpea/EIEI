@@ -19,7 +19,7 @@
             <tr>
                 <td>ID</td>
                 <td>Title</td>
-                <td>Time</td>
+                <td>Start time</td>
                 <td>Control</td>
             </tr>
         </thead>
@@ -27,8 +27,8 @@
             @foreach($calendars as $calendar)
                 <tr style=" background-color: {{ $calendar->color }}; color: {{ $calendar->textColor }}; ">
                     <td>{{ $calendar->id }}</td>
-                    <td>{{ $calendar->title }}</td>
-                    <td>{{ $calendar->start }}</td>
+                    <td>{{  $calendar->title }}</td>
+                    <td>{{ date('d-m-Y', strtotime($calendar->start)) }}</td>
                     <td>
                         <a href="/calendars/{{ $calendar->id }}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                         <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>

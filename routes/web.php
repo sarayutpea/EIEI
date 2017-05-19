@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
 });
@@ -24,7 +26,6 @@ Route::delete('/articles/{id}', 'ArticleController@destroy');
 Route::post('/articles/{article}/comments', 'CommentController@store'); //ส่ง id ชื่อว่า article เพราะจะส่งไปเป็น object
 
 
-
 // Files
 
 Route::get('/files','FileController@index');
@@ -36,14 +37,12 @@ Route::post('/files/{id}', 'FileController@update'); //update
 Route::delete('/files/{id}', 'FileController@destroy');
 
 
-
 Route::get('/calendars','CalendarController@index');
 Route::get('/calendars/create','CalendarController@create');
 Route::get('/calendars/show','CalendarController@show');
 Route::get('/calendars/{id}/edit','CalendarController@edit');
 Route::post('/calendars/{id}/edit','CalendarController@update'); //save 
 Route::post('/calendars','CalendarController@store'); //save 
-
 
 
 Route::get('/polls','PollController@index');
@@ -60,7 +59,6 @@ Route::post('/pollItem/addPoint','PollItemController@addPoint'); //update poll p
 
 
 
-
 Route::get('/questions','QuestionController@index');
 Route::get('/questions/create','QuestionController@create');
 Route::get('/questions/{id}','QuestionController@show');
@@ -73,10 +71,7 @@ Route::delete('/questions/{id}', 'QuestionController@destroy'); //DELETE
 
 Route::get('/genforms','GenformController@index');
 Route::get('/genforms/create','GenformController@create');
+Route::post('/genforms','GenformController@store');
 
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+// RSSfeeds
+Route::get('/rssfeeds','RssController@index');
