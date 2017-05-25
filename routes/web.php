@@ -75,3 +75,6 @@ Route::post('/genforms','GenformController@store');
 
 // RSSfeeds
 Route::get('/rssfeeds','RssController@index');
+
+
+Route::get('/sessions','SessionController@index');
